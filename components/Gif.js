@@ -11,7 +11,7 @@ Gif = React.createClass({
     },
   
     render: function() {
-        var url = this.props.loading ? GIPHY_LOADING_URL : this.props.url;
+        const url = this.props.loading ? GIPHY_LOADING_URL : this.props.url;
 
         return (
             <div style={styles}>
