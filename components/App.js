@@ -12,30 +12,28 @@ App = React.createClass({
         };
     },
 
-    getGif: function(searchingText) {   
-        return new Promise(function (resolve, reject) {
-        const xhr = new XMLHttpRequest(); 
+  getGif: function (searchingText) {
+      return new Promise(function (resolve, reject) {
+      const xhr = new XMLHttpRequest();
+      xhr.onload = function () {
+          if (xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText).data;
 
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    const data = JSON.parse(xhr.responseText).data;   
-                    const gif = {                                     
-                    url: data.fixed_width_downsampled_url,
-                    sourceUrl: data.url
-                    };
-                    resolve(gif);     
-                
-                } else {
-                    reject(new Error(this.statusText));
-                }
-            request.onerror = function () {
-            reject(new Error(`XMLHttpRequest Error: ${this.statusText}`));
-            };
-            xhr.open('GET', url);            
-            xhr.send();
-            }
-        });
-    },
+          const gif = {
+            url: data.fixed_width_downsampled_url,
+            sourceUrl: data.url
+          };
+              
+          resolve(gif)
+        
+          } else { 
+              reject(new Error(this.statusText)) 
+          };
+      }
+      xhr.open('GET', url + searchingText)
+      xhr.send()
+      })
+  },
 
     handleSearch: function(searchingText) {                     
         this.setState({
