@@ -1,6 +1,8 @@
 const GIPHY_API_URL = 'https://api.giphy.com';
 const GIPHY_PUB_KEY = 'jH8VuwSrEU1ecf1PAZljO5T13Qh5YKFg';
 
+const url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=';
+
 App = React.createClass({
     getInitialState() {
         return {
@@ -13,7 +15,7 @@ App = React.createClass({
     getGif: function(searchingText) {   
         return new Promise(function (resolve, reject) {
         const xhr = new XMLHttpRequest(); 
-        const url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText; 
+
             xhr.onload = function() {
                 if (xhr.status === 200) {
                     const data = JSON.parse(xhr.responseText).data;   
