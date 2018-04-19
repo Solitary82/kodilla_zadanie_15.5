@@ -5,7 +5,6 @@
   "main": "script.js",
   "scripts": {
     "start": "http-server",
-    "build": "babel script.js --watch --out-file script-compiled.js",
     "test": "npm-run-all test:*",
     "test:js1": "jshint script.js",
     "test:js2": "jshint components/",
