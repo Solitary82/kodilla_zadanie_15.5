@@ -1,6 +1,6 @@
-var GIPHY_LOADING_URL = 'http://www.ifmo.ru/images/loader.gif';
+const GIPHY_LOADING_URL = 'http://www.ifmo.ru/images/loader.gif';
 
-var styles = {
+const styles = {
     minHeight: '310px',
     margin: '0.5em'
     };
